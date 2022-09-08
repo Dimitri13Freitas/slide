@@ -7,31 +7,109 @@
 }
 body {
   background-color: #2b2b2b;
+  font-family: "Fira Sans", Arial, Helvetica, sans-serif;
 }
+
 /* Header */
 .headerContainer {
-  width: 75%;
-  background: linear-gradient(45deg, #7a41ce 0%, #bd1d8c 100%);
-  clip-path: polygon(0 0, 100% 0, 76% 63%, 0% 100%);
-  min-height: 250px;
+  display: flex;
+  justify-content: space-between;
 }
 .header {
+  background: linear-gradient(45deg, #7a41ce 0%, #bd1d8c 100%);
+  clip-path: polygon(0 0, 100% 0, 76% 63%, 0% 100%);
+  width: 75%;
+  height: 250px;
+  display: flex;
+  align-items: flex-start;
+  gap: 200px;
+  overflow: hidden;
+}
+.header div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 20px;
+  margin: 20px 30px;
+  gap: 200px;
 }
-.header img {
-  justify-self: flex-start;
-  align-self: center;
-  margin-left: 60px;
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 180px;
+  font-size: 1.3rem;
+  color: #e7e7e7;
+  cursor: pointer;
 }
-.header nav {
-  display: block;
-  margin-right: 380px;
-  font-size: 1.5rem;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+.navegacao li {
+  display: flex;
+  align-items: center;
 }
-.header nav a {
+.navegacao li:hover {
   color: white;
+}
+.contatoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-right: 30px;
+}
+.contatoContainer div {
+  text-align: center;
+}
+.contatoContainer div:hover > p {
+  transform: translate3d(0, 4px, 0);
+  opacity: 1;
+}
+.contatoContainer img {
+  width: 45px;
+}
+.contatoContainer p {
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+  .header div {
+    gap: 100px;
+  }
+  .navegacao {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .navegacao {
+    flex-direction: column;
+    gap: 13px;
+    align-items: flex-start;
+  }
+  .navegacao li::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 5px;
+    background-color: white;
+    margin-right: 4px;
+  }
+  .header {
+    height: 230px;
+  }
+  .header div {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    margin: 15px 25x;
+  }
+  .contatoContainer img {
+    width: 40px;
+  }
+}
+@media (max-width: 330px) {
+  .header img {
+    width: 135px;
+  }
 }
