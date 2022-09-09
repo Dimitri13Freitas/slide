@@ -103,6 +103,8 @@ body {
 }
 .imagens img {
   border: 5px white solid;
+  overflow: hidden;
+  margin: 0 40px;
 }
 
 /* Perimeiro Slide */
