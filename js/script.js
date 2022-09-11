@@ -1,44 +1,50 @@
-// Primeiro Slide
-function slide1() {
-const imgs = document.querySelectorAll('[data-img1]');
-const btns = document.querySelectorAll('[data-navSlide]');
+const img = document.querySelectorAll('[data-img="Primeiro"]');
+const btn = document.querySelectorAll('[data-btn="Primeiro"]');
 
-let i = 0
+img[0].classList.add('ativo');
+btn[0].classList.add('ativo');
+
+let index = 0
 
 setInterval(() => {
-  imgs.forEach((e) => {
-    e.classList.remove(atribute)
-  })
-  imgs[i].classList.add(atribute)
-  btns.forEach((e) => {
-    e.classList.remove(atribute);
-  })
-  btns[i].classList.add(atribute)
-
-  i++
-  if(i >= imgs.length) {
-    i = 0
-  }
-}, 1580);
-
-let atribute = imgs[i].getAttribute('data-img1');
-
-  btns.forEach((e, index) => {
-    e.addEventListener('click', () => {
-
-      btns.forEach((e) => {
-        e.classList.remove(atribute)
-      });
-  
-      e.classList.add('ativo');
-  
-      imgs.forEach((e) => {
-        e.classList.remove(atribute)
-      });
-      imgs[index].classList.add(atribute);
-
-    });
+  img.forEach((e) => {
+    e.classList.remove('ativo')
   });
+
+  img[index].classList.add('ativo')
+
+  btn.forEach((e) => {
+    e.classList.remove('ativo')
+  });
+  btn[index].classList.add('ativo')
+
+  index++
+  if (index >= img.length) {
+    index = 0
+  }
+}, 2000);
+
+
+btn.forEach((e, i) => {
+  e.addEventListener('click',() => {
+    btn.forEach((e) => {
+      e.classList.remove('ativo')
+    });
+
+    e.classList.add('ativo');
+
+    img.forEach((e) => {
+      e.classList.remove('ativo')
+    });
+
+    index = i
+    img[index].classList.add('ativo')
+  });
+});
+
+function teste() {
+  
 };
 
-slide1();
+console.log(btn);
+
