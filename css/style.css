@@ -20,10 +20,6 @@ body {
   clip-path: polygon(0 0, 100% 0, 76% 63%, 0% 100%);
   width: 75%;
   height: 250px;
-  display: flex;
-  align-items: flex-start;
-  gap: 200px;
-  overflow: hidden;
 }
 .header div {
   display: flex;
@@ -82,29 +78,32 @@ body {
 .titulo {
   color: white;
   font-size: 2.5rem;
-  display: flex;
-  align-items: flex-end;
 }
-.titulo:after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  margin-left: 3px;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  display: block;
-  background: linear-gradient(45deg, #7a41ce 0%, #bd1d8c 100%);
+.titulo span {
+  color: #7a41ce;
 }
 .imagens {
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: 420px;
   gap: 15px;
+  margin: 35px auto;
 }
 .imagens img {
-  border: 5px white solid;
-  overflow: hidden;
-  margin: 0 40px;
+  display: none;
+  transition: transicao 0.5s;
+}
+.imagens nav {
+  margin: 0 auto;
+}
+.imagens nav button.ativo {
+  background: linear-gradient(45deg, #7a41ce 0%, #bd1d8c 100%);
+  animation: transicao 0.5s;
+}
+.imagens img.ativo {
+  display: block;
+  animation: transicao 0.5s;
 }
 
 /* Perimeiro Slide */
@@ -157,9 +156,26 @@ body {
   .contatoContainer img {
     width: 40px;
   }
+  .slidesContainer {
+    margin: 20px;
+  }
+  .titulo {
+    font-size: 2rem;
+  }
 }
 @media (max-width: 330px) {
   .header img {
     width: 135px;
+  }
+}
+
+/* Animações */
+
+@keyframes transicao {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
