@@ -49,7 +49,29 @@ PrimeiroSlide();
 // Segundo Slide
 
 const img = document.querySelectorAll('[data-img="Segundo"]');
-const btn = document.querySelectorAll('[data-btn="Segundo"]');
+const btnD = document.querySelector('[data-btn^="setaDireita"]');
+const btnE = document.querySelector('[data-btn^="setaEsquerda"]');
 
-console.log(img);
-console.log(btn);
+btnD.addEventListener('click', slideRight);
+btnE.addEventListener('click', slideLeft);
+
+let valor = 0;
+function slideLeft() {
+  if(valor <= 0) {
+    valor = 300
+  } else {
+    valor = valor - 100
+  }
+  img[0].style.marginLeft = `${-valor}%`;
+  console.log(valor);
+}
+
+function slideRight() {
+  if(valor > 200) {
+    valor = 0;
+  }else {
+    valor += 100;
+  }
+  img[0].style.marginLeft = `-${valor}%`;
+  console.log(valor);
+}

@@ -133,6 +133,10 @@ body {
   overflow: hidden;
   max-width: 420px;
 }
+.segundo .imagens div img:nth-child(1) {
+  /* margin-left: -100%; */
+  transition: 0.5s;
+}
 .segundo .imagens [data-btn^="seta"] {
   cursor: pointer;
   background: none;
