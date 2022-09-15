@@ -132,15 +132,33 @@ body {
   display: flex;
   overflow: hidden;
   max-width: 420px;
+  position: relative;
+}
+.segundo .imagens div .detalhe {
+  width: 25%;
+  height: 3px;
+  background-color: #bd1d8c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
 }
 .segundo .imagens div img:nth-child(1) {
-  /* margin-left: -100%; */
   transition: 0.5s;
 }
 .segundo .imagens [data-btn^="seta"] {
   cursor: pointer;
   background: none;
   border: none;
+  transition: 0.3s;
+}
+.segundo .imagens [data-btn^="seta"]:nth-child(3):hover {
+  background: linear-gradient(90deg, #bd1d8c -312.86%, #141414 78.57%);
+  animation: transicao 0.3s;
+}
+.segundo .imagens [data-btn^="seta"]:nth-child(1):hover {
+  background: linear-gradient(270deg, #bd1d8c -312.86%, #141414 78.57%);
+  animation: transicao 0.3s;
 }
 .segundo .imagens [data-btn="setaDireita"]::after {
   content: "";
@@ -152,7 +170,6 @@ body {
   margin: 0 0 0 10px;
 }
 .segundo .imagens [data-btn="setaDireita"]:hover:after {
-  background-image: url("../img/assets/arrowRightHover.svg");
   transform: translate3d(5px, 0, 0);
 }
 .segundo .imagens [data-btn="setaEsquerda"]::after {
@@ -165,7 +182,6 @@ body {
   margin: 0 10px 0 0;
 }
 .segundo .imagens [data-btn="setaEsquerda"]:hover:after {
-  background-image: url("../img/assets/arrowLeftHover.svg");
   transform: translate3d(-5px, 0, 0);
 }
 

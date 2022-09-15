@@ -48,30 +48,56 @@ PrimeiroSlide();
 
 // Segundo Slide
 
-const img = document.querySelectorAll('[data-img="Segundo"]');
-const btnD = document.querySelector('[data-btn^="setaDireita"]');
-const btnE = document.querySelector('[data-btn^="setaEsquerda"]');
+function segundoSlide() {
+  const img = document.querySelectorAll('[data-img="Segundo"]');
+  const btnD = document.querySelector('[data-btn^="setaDireita"]');
+  const btnE = document.querySelector('[data-btn^="setaEsquerda"]');
+  const detalhe = document.querySelector('.detalhe');
 
-btnD.addEventListener('click', slideRight);
-btnE.addEventListener('click', slideLeft);
 
-let valor = 0;
-function slideLeft() {
-  if(valor <= 0) {
-    valor = 300
-  } else {
-    valor = valor - 100
+  btnD.addEventListener('click', slideRight);
+  btnE.addEventListener('click', slideLeft);
+
+  let valor = 0;
+  let valorDetalhe = 0;
+  function slideLeft() {
+    if(valor <= 0) {
+      valor = 300
+    } else {
+      valor -= 100;
+    };
+    img[0].style.marginLeft = `${-valor}%`;
+
+    detalheLeft();
   }
-  img[0].style.marginLeft = `${-valor}%`;
-  console.log(valor);
-}
 
-function slideRight() {
-  if(valor > 200) {
-    valor = 0;
-  }else {
-    valor += 100;
-  }
-  img[0].style.marginLeft = `-${valor}%`;
-  console.log(valor);
-}
+  function detalheLeft() {
+    if( valorDetalhe <= 0) {
+      valorDetalhe = 75
+    } else {
+      valorDetalhe -= 25
+    }
+    detalhe.style.left = `${valorDetalhe}%`;
+  };
+
+  function slideRight() {
+    if(valor >= 300) {
+      valor = 0;
+    }else {
+      valor += 100;
+    };
+    img[0].style.marginLeft = `-${valor}%`;
+
+    detalheRight();
+  };
+
+  function detalheRight() {
+    if(valorDetalhe >= 75) {
+      valorDetalhe = 0
+    } else {
+      valorDetalhe += 25
+    };
+    detalhe.style.left = `${valorDetalhe}%`;
+  };
+};
+segundoSlide();
