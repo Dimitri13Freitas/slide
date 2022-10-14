@@ -14,13 +14,23 @@ img {
 .slide {
   display: flex;
 }
+.slide:hover {
+  will-change: transform;
+}
 .slide li {
   flex-shrink: 0;
   width: 80vw;
   max-width: 800px;
   margin: 0 20px;
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: 0.3s;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* .slide {
-  transform: translate3d(-200px, 0px, 0px);
-} */
+.slide li.active {
+  opacity: 1;
+  transform: scale(1);
+}
