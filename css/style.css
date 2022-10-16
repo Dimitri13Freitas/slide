@@ -77,7 +77,20 @@ img {
   border: none;
   font-size: 1.3rem;
   border-radius: 4px;
-  padding: 6px 25px;
+  padding: 15px 25px;
   cursor: pointer;
   transition: 0.3s;
+  position: relative;
+}
+.arrowNav button::after {
+  content: "";
+  width: 12px;
+  height: 16px;
+  background: url("../img/arrow.svg");
+  position: absolute;
+  top: 22%;
+  left: 38%;
+}
+.arrowNav button.prev::after {
+  transform: rotate(-180deg);
 }
